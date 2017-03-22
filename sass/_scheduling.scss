@@ -1,0 +1,435 @@
+// scheduling.scss
+.fc-widget-content {
+    & .fc-slats {
+        & table {
+            background: #ffffff;
+        }
+    }
+}
+
+.fc-event {
+    &.online_meeting, &.inPerson_meeting, &.open_meeting, &.panding_online_meeting, &.panding_inPerson_meeting, &.cenceled_meeting, &.off_meeting {
+        border: none;
+        color: #39A700;
+        padding: 5px 0 2px 10px;
+    }
+
+    &.off_hours {}
+
+    &.online_meeting {
+        color: #709142;
+        background: url("/backend_template/images/schedule/Green.png") repeat-y left top transparent;
+
+        &:hover {
+            color: #709142;
+        }
+    }
+
+    &.inPerson_meeting {
+        background: url("/backend_template/images/schedule/Blue.png") repeat-y left top transparent;
+        color: #416b84;
+
+        &:hover {
+            color: #416b84;
+        }
+    }
+
+    &.panding_online_meeting {
+        color: orange;
+        background: url("/backend_template/images/schedule/Orange.png") repeat-y left top transparent;
+
+        &:hover {
+            color: orange;
+        }
+    }
+
+    &.panding_inPerson_meeting {
+        color: orange;
+        background: url("/backend_template/images/schedule/Orange.png") repeat-y left top transparent;
+
+        &:hover {
+            color: orange;
+        }
+    }
+
+    &.open_meeting {
+        color: #000000;
+        background: #ffffff;
+
+        &:hover {
+            color: #000000;
+        }
+    }
+
+    &.off_meeting {
+        color: #535353;
+        background: url("/backend_template/images/schedule/Gray.png") repeat-y left top transparent;
+
+        &:hover {
+            color: #535353;
+        }
+    }
+
+    &.cenceled_meeting {
+        color: #535353;
+        background: url("/backend_template/images/schedule/Gray.png") repeat-y left top transparent;
+
+        &:hover {
+            color: #535353;
+        }
+    }
+}
+
+.tab-content {
+    position: relative;
+}
+
+.fc-toolbar {
+    position: absolute;
+    top: -41px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.fc-toolbar .fc-left {
+    position: absolute;
+    right: 20px;
+
+    & > div.fc-button-group {
+        top: 100px;
+        right: -35px;
+        position: absolute;
+        z-index: 2;
+
+        & > button {
+            position: relative;
+            margin-top: -15px;
+            padding-top: 5px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            background: #FFFFFF;
+            color: #000;
+            text-decoration: none;
+            text-shadow: 0 0 1px #000;
+            font: 24px/27px Arial, sans-serif;
+            overflow: hidden;
+
+            @include border-radius(30px);
+
+            &:hover {
+                border: none;
+
+                @include box-shadow(0, 0, 6px, #C0C0C0);
+            }
+
+            &:last-child {
+                top: 20px;
+            }
+
+            & .fc-icon {
+                padding: 0;
+                margin: 0;
+                position: relative;
+                left: -8px;
+                top: -2px;
+            }
+        }
+    }
+
+    & > button {
+        display: none;
+        top: 0px;
+    }
+}
+
+.fc-toolbar .fc-center {
+    float: left;
+
+    & h2 {
+        &::before {
+            content: "\f073";
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            width: 40px;
+            height: 20px;
+        }
+    }
+}
+
+.fc-toolbar .fc-right {
+    float: none;
+    position: absolute;
+    left: 300px;
+
+    & .fc-button-group {
+        background: #ffffff;
+
+        & button {
+            margin-left: 0;
+            color: #8891A1;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 1px solid;
+            width: 80px;
+            padding: 10px;
+            text-align: center;
+            height: initial;
+            top: -7px;
+            position: relative;
+
+            &.fc-state-active {}
+        }
+    }
+}
+
+.fc-widget-header {
+    border: none;
+
+    & table {
+        & thead {
+            & th {
+                border: none;
+                text-transform: uppercase;
+                padding: 10px 0;
+            }
+        }
+    }
+}
+
+.nav-tabs-custom {
+    & .meetings_preferences_link {
+        display: inline-block;
+        padding: 0 15px 0 0;
+        font-size: 16px;
+        color: $primary_color;
+    }
+
+    & .meetings_keys_colors td {
+        width: 100px;
+        padding-right: 10px;
+        vertical-align: top;
+        text-align: left;
+        border: none;
+    }
+
+    & .fc-time-grid-event.fc-event.fc-start.fc-end.meetings_key_color, .fc-time-grid-event.fc-event.fc-start.fc-end.fc-short.meetings_key_color {
+        display: inline-block;
+        width: 13px;
+        height: 12px;
+        border: none;
+        outline: none !important;
+        box-sizing: border-box;
+
+        @include border-radius(50%);
+
+        &.office_hours {
+            background: $meetings_key_color_office_hours;
+        }
+
+        &.online {
+            background: $meetings_key_color_online;
+        }
+
+        &.pending {
+            background: $meetings_key_color_pending;
+        }
+
+        &.off_hours {
+            background: $meetings_key_color_off_hours;
+            border: 1px solid $primary_color;
+        }
+
+        &.in_person {
+            background: $meetings_key_color_in_person;
+        }
+
+        &.cancelled {
+            background: $meetings_key_color_cancelled;
+        }
+    }
+}
+
+.meetings_list_view_title {
+    position: absolute;
+    top: -41px;
+    left: 0;
+    padding: 0 15px;
+}
+
+.past-meetings-table-head {
+    @include background-gradient(#f7f9fb, #e0e8ef, false);
+}
+
+.meeting_type_id_0, .meeting_type_id_1, .meeting_type_id_2, .meeting_type_id_3, .meeting_type_id_4 {
+    display: inline-block;
+    width: 13px;
+    height: 12px;
+    border: none;
+    outline: none !important;
+    box-sizing: border-box;
+
+    @include border-radius(50%);
+}
+
+.meeting_type_id_0 {
+    background: #3A87AD;
+}
+
+.meeting_type_id_1 {
+    background: #378006;
+}
+
+.meeting_type_id_2 {
+    background: #3A87AD;
+}
+
+.meeting_type_id_3 {
+    background: #fff;
+    border: 1px solid #757575;
+}
+
+.meeting_type_id_4 {
+    background: #fff;
+    border: 1px solid #757575;
+}
+
+.schedule_patient_my_meetings_box {
+    position: relative;
+
+    & .dataTables_filter {
+        position: absolute;
+        top: 20px;
+        left: 220px;
+        display: none;
+    }
+
+    & section.section{
+        & .dataTables_wrapper{
+            & > .row{
+                margin: 0;
+            }
+        }
+    }
+}
+
+.schedule_patient_avaliable_meetings_box {
+    & button.enroll_to_therapist, button.ukrsol_reschedule {
+        padding: 8px 15px !important;
+        margin: 0;
+        display: block;
+        font-weight: normal;
+    }
+
+    & .schedule_meetings_prev, .schedule_meetings_next {
+        position: absolute;
+        right: 0;
+        top: 140px;
+        margin-top: -15px;
+        padding-top: 5px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        background: #FFFFFF;
+        color: #000;
+        text-decoration: none;
+        text-shadow: 0 0 1px #000;
+        font: 24px/27px Arial, sans-serif;
+        cursor: pointer;
+
+        @include border-radius(30px);
+
+        &:hover {
+            color: #000;
+
+            @include box-shadow(0, 0, 6px, #C0C0C0);
+        }
+    }
+
+    & .schedule_meetings_prev {
+        top: 90px;
+
+        & i {
+            position: relative;
+            left: -4px;
+        }
+    }
+}
+
+#show_from_to_selected_month, .show_from_to_selected_month_icon {
+    font-size: 24px;
+}
+
+
+/* Chosen */
+#meeting_modal {
+
+    & strong {
+        font-size: 14px;
+        text-decoration: uppercase;
+    }
+
+    & .chosen-choices > li.search-choice {
+        background: #92a5be;
+        color: #fff;
+        border: 1px solid #92a5be;
+        border-radius: 0px;
+
+        &:after {
+            height: 20px;
+            width: 1px;
+            background: #fff;
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+        }
+        & .search-choice-close {
+            background: #92a5be;
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: 14px;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: #fff;
+            text-decoration: none;
+
+            &:after {
+                content: ' ';
+                display: block;
+                width: 2px;
+                position: absolute;
+                height: 22px;
+                background: #fff;
+                bottom: -4px;
+                right: 14px;
+            }
+            &:before {
+                content: "\f00d";
+                position: relative;
+                bottom: 1.5px;
+            }
+        }
+    }
+    .search-field {
+        margin:3px; 
+
+        & .text-success {
+            margin-right: 3px;
+        }
+
+        & .text-link {
+            text-decoration: underline;
+            color: $link_color;
+        }
+    }
+
+    & .dropdown-menu{
+        & .btn{
+            color: #353535 !important;
+            background: transparent !important;
+        }
+    }
+}
