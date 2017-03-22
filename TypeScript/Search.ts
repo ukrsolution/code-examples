@@ -1,5 +1,5 @@
 module GoodsPack {
-	var $ = jQuery;
+	var $ = jQuery; 
 	export class Search {
 
 		static $searchInput :string = "#goodspack_search_input";
